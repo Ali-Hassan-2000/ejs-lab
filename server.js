@@ -106,7 +106,10 @@ app.get('/menu/:category', (req, res) => {
     });
 });
 
-
+/*
+Exercise 4: Level Up
+- Use inline conditional rendering to add a star emoji "⭐" next to the title of any menu item that has a rating of 5
+*/
 
 /* -------------TCP port--------------- */
 app.listen(3000);
