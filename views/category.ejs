@@ -1,0 +1,25 @@
+<!-- Exercise 3 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= category %></title>
+</head>
+<body>
+  <%- include('./partials/nav') %>
+
+  <h1><%= category %></h1>
+  <ul>
+    <% menuItems.forEach(dish =>  { %>
+        <li>
+          <h3>Name: <%= dish.name %></h3>
+          <h4>Price: <%= dish.price %>$ / Rating: <%= dish.rating %></h4>
+          <h5><%= dish.details %></h5>
+        </li>
+    <% }); %>
+
+  </ul>
+
+</body>
+</html>

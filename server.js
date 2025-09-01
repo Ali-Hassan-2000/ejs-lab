@@ -66,9 +66,44 @@ Exercise 1: Create a homepage
 */
 app.get('/', (req, res) => {
     res.render('home.ejs',{
-    RESTAURANT: RESTAURANT,
-
+        RESTAURANT: RESTAURANT,
   });
+});
+
+/*
+Exercise 2: Create a nav bar
+- create a nav.ejs file
+- Add partial file to the top of the <body> in home.ejs
+- Create a new route (/menu)
+- Using the locals object, pass the menu array data from server.js to the menu.ejs view
+- In menu.ejs, Use a forEach() loop, to render each of the menu items and their details to the page.
+- Using conditionals, refactor your code to render the items based on the category of the dish
+  "Mains" "Desserts" or "Sides"
+*/
+app.get('/menu', (req, res) => {
+    res.render('menu.ejs',{
+        RESTAURANT: RESTAURANT,  
+  });
+});
+
+/*
+Exercise 3: Create a separate page for menu categories
+- Create a new /menu/:category route
+- Create a category.ejs view for this new route
+- Use menu.ejs as an example and add boilerplate HTML to your new view
+  .pass an array of data called menuItems containing only items that match the req.params category to the
+   category.ejs view.
+  .Send the category name in the locals object along with the filtered menu data.
+  .Once in the view, use a forEach() loop, to render each of the menu items and their details to the page.
+*/
+app.get('/menu/:category', (req, res) => {
+    const category = req.params.category;
+    const menuItems = RESTAURANT.menu.filter(dish => dish.category === category);
+    res.render('category.ejs',{
+      RESTAURANT: RESTAURANT,
+      category: category,
+      menuItems: menuItems,
+    });
 });
 
 

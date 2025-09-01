@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+  <!-- Exercise 3 -->
+  <%- include('./partials/nav') %>
+
+  <!-- Exercise 2 -->
+  <h1>Restaurant Menu</h1>
+  <ul>
+    <h2>Mains</h2>
+    <% RESTAURANT.menu.forEach(dish => { %>
+      <% if (dish.category === 'mains') { %>
+        <li>
+          <h3>Name: <%= dish.name %></h3>
+          <h4>Price: <%= dish.price %>$ / Rating: <%= dish.rating %></h4>
+          <h5><%= dish.details %></h5>
+        </li>
+      <% } %>
+    <% }); %>
+    <br>
+    
+    <h2>Desserts</h2>
+    <% RESTAURANT.menu.forEach(dish => { %>
+      <% if (dish.category === 'desserts') { %>
+        <li>
+          <h3>Name: <%= dish.name %></h3>
+          <h4>Price: <%= dish.price %>$ / Rating: <%= dish.rating %></h4>
+          <h5><%= dish.details %></h5>
+        </li>
+      <% } %>
+    <% }); %>
+    <br>
+
+    <h2>Sides</h2>
+    <% RESTAURANT.menu.forEach(dish => { %>
+      <% if (dish.category === 'sides') { %>
+        <li>
+          <h3>Name: <%= dish.name %></h3>
+          <h4>Price: <%= dish.price %>$ / Rating: <%= dish.rating %></h4>
+          <h5><%= dish.details %></h5>
+        </li>
+      <% } %>
+    <% }); %>
+
+  </ul>
+
+</body>
+</html>
