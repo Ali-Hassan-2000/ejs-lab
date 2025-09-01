@@ -14,7 +14,7 @@
     <% menuItems.forEach(dish =>  { %>
         <li>
           <h3>Name: <%= dish.name %></h3>
-          <h4>Price: <%= dish.price %>$ / Rating: <%= dish.rating %></h4>
+          <h4>Price: <%= dish.price %>$ / Rating: <%= dish.rating === 5 ? "⭐"+dish.rating+"⭐" : dish.rating %></h4>
           <h5><%= dish.details %></h5>
         </li>
     <% }); %>
